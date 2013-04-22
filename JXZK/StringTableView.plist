@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>投影机开关</string>
+		<string>投影机1</string>
+		<string>投影机2</string>
+	</array>
+	<array>
+		<string>灯光回路开关</string>
+		<string>灯光回路1</string>
+		<string>灯光回路2</string>
+	</array>
+	<array>
+		<string>融合器开关</string>
+		<string>融合器1</string>
+	</array>
+</array>
+</plist>

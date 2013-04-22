@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThumbImageView.h"
+@interface ViewController : UIViewController<ThumbImageViewDelegate>
+{
+    NSInteger _currentIndex;
+}
+@property (weak, nonatomic) IBOutlet UIScrollView *_scrollTabButtonList;
 
-@interface ViewController : UIViewController
 
 @end

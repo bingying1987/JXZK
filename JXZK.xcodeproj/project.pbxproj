@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041B19091724EF3200A5F63E /* UIMySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 041B19081724EF3200A5F63E /* UIMySwitch.m */; };
+		041B190B172509ED00A5F63E /* StringTableView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041B190A172509ED00A5F63E /* StringTableView.plist */; };
+		041B190E17250EF100A5F63E /* TableRelayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041B190D17250EF100A5F63E /* TableRelayViewController.m */; };
+		041B19101725207600A5F63E /* online.png in Resources */ = {isa = PBXBuildFile; fileRef = 041B190F1725207600A5F63E /* online.png */; };
 		047407711720E34000DD0408 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407701720E34000DD0408 /* UIKit.framework */; };
 		047407731720E34000DD0408 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407721720E34000DD0408 /* Foundation.framework */; };
 		047407751720E34000DD0408 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407741720E34000DD0408 /* CoreGraphics.framework */; };
@@ -16,13 +20,16 @@
 		047407831720E34000DD0408 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 047407821720E34000DD0408 /* Default.png */; };
 		047407851720E34000DD0408 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 047407841720E34000DD0408 /* Default@2x.png */; };
 		047407871720E34000DD0408 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 047407861720E34000DD0408 /* Default-568h@2x.png */; };
-		0474078A1720E34000DD0408 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047407881720E34000DD0408 /* MainStoryboard.storyboard */; };
 		0474078D1720E34000DD0408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474078C1720E34000DD0408 /* ViewController.m */; };
 		047407951720E34100DD0408 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407941720E34100DD0408 /* SenTestingKit.framework */; };
 		047407961720E34100DD0408 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407701720E34000DD0408 /* UIKit.framework */; };
 		047407971720E34100DD0408 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047407721720E34000DD0408 /* Foundation.framework */; };
 		0474079F1720E34100DD0408 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0474079D1720E34100DD0408 /* InfoPlist.strings */; };
 		047407A21720E34100DD0408 /* JXZKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 047407A11720E34100DD0408 /* JXZKTests.m */; };
+		047407AD1720F38300DD0408 /* ThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047407AC1720F38300DD0408 /* ThumbImageView.m */; };
+		04A310931721291600462C1D /* tmp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04A310921721291600462C1D /* tmp.jpg */; };
+		04A3109517212DE500462C1D /* ImageData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A3109417212DE500462C1D /* ImageData.plist */; };
+		04FB86261721490800734F41 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FB86241721490800734F41 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041B19071724EF3200A5F63E /* UIMySwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMySwitch.h; sourceTree = "<group>"; };
+		041B19081724EF3200A5F63E /* UIMySwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMySwitch.m; sourceTree = "<group>"; };
+		041B190A172509ED00A5F63E /* StringTableView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StringTableView.plist; sourceTree = "<group>"; };
+		041B190C17250EF100A5F63E /* TableRelayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableRelayViewController.h; sourceTree = "<group>"; };
+		041B190D17250EF100A5F63E /* TableRelayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableRelayViewController.m; sourceTree = "<group>"; };
+		041B190F1725207600A5F63E /* online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = online.png; sourceTree = "<group>"; };
 		0474076D1720E34000DD0408 /* JXZK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JXZK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047407701720E34000DD0408 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		047407721720E34000DD0408 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,7 +62,6 @@
 		047407821720E34000DD0408 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		047407841720E34000DD0408 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		047407861720E34000DD0408 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		047407891720E34000DD0408 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0474078B1720E34000DD0408 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0474078C1720E34000DD0408 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		047407931720E34100DD0408 /* JXZKTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JXZKTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +70,11 @@
 		0474079E1720E34100DD0408 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		047407A01720E34100DD0408 /* JXZKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXZKTests.h; sourceTree = "<group>"; };
 		047407A11720E34100DD0408 /* JXZKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXZKTests.m; sourceTree = "<group>"; };
+		047407AB1720F38300DD0408 /* ThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbImageView.h; sourceTree = "<group>"; };
+		047407AC1720F38300DD0408 /* ThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbImageView.m; sourceTree = "<group>"; };
+		04A310921721291600462C1D /* tmp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tmp.jpg; sourceTree = "<group>"; };
+		04A3109417212DE500462C1D /* ImageData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ImageData.plist; sourceTree = "<group>"; };
+		04FB86251721490800734F41 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +104,7 @@
 		047407641720E34000DD0408 = {
 			isa = PBXGroup;
 			children = (
+				04A31091172128FA00462C1D /* ThumbImage */,
 				047407761720E34000DD0408 /* JXZK */,
 				0474079A1720E34100DD0408 /* JXZKTests */,
 				0474076F1720E34000DD0408 /* Frameworks */,
@@ -119,9 +137,15 @@
 			children = (
 				0474077F1720E34000DD0408 /* AppDelegate.h */,
 				047407801720E34000DD0408 /* AppDelegate.m */,
-				047407881720E34000DD0408 /* MainStoryboard.storyboard */,
 				0474078B1720E34000DD0408 /* ViewController.h */,
 				0474078C1720E34000DD0408 /* ViewController.m */,
+				047407AB1720F38300DD0408 /* ThumbImageView.h */,
+				047407AC1720F38300DD0408 /* ThumbImageView.m */,
+				04FB86241721490800734F41 /* MainStoryboard.storyboard */,
+				041B19071724EF3200A5F63E /* UIMySwitch.h */,
+				041B19081724EF3200A5F63E /* UIMySwitch.m */,
+				041B190C17250EF100A5F63E /* TableRelayViewController.h */,
+				041B190D17250EF100A5F63E /* TableRelayViewController.m */,
 				047407771720E34000DD0408 /* Supporting Files */,
 			);
 			path = JXZK;
@@ -131,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				047407781720E34000DD0408 /* JXZK-Info.plist */,
+				04A3109417212DE500462C1D /* ImageData.plist */,
+				041B190A172509ED00A5F63E /* StringTableView.plist */,
 				047407791720E34000DD0408 /* InfoPlist.strings */,
 				0474077C1720E34000DD0408 /* main.m */,
 				0474077E1720E34000DD0408 /* JXZK-Prefix.pch */,
@@ -158,6 +184,15 @@
 				0474079D1720E34100DD0408 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04A31091172128FA00462C1D /* ThumbImage */ = {
+			isa = PBXGroup;
+			children = (
+				04A310921721291600462C1D /* tmp.jpg */,
+				041B190F1725207600A5F63E /* online.png */,
+			);
+			name = ThumbImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +270,11 @@
 				047407831720E34000DD0408 /* Default.png in Resources */,
 				047407851720E34000DD0408 /* Default@2x.png in Resources */,
 				047407871720E34000DD0408 /* Default-568h@2x.png in Resources */,
-				0474078A1720E34000DD0408 /* MainStoryboard.storyboard in Resources */,
+				04A310931721291600462C1D /* tmp.jpg in Resources */,
+				04A3109517212DE500462C1D /* ImageData.plist in Resources */,
+				04FB86261721490800734F41 /* MainStoryboard.storyboard in Resources */,
+				041B190B172509ED00A5F63E /* StringTableView.plist in Resources */,
+				041B19101725207600A5F63E /* online.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +312,9 @@
 				0474077D1720E34000DD0408 /* main.m in Sources */,
 				047407811720E34000DD0408 /* AppDelegate.m in Sources */,
 				0474078D1720E34000DD0408 /* ViewController.m in Sources */,
+				047407AD1720F38300DD0408 /* ThumbImageView.m in Sources */,
+				041B19091724EF3200A5F63E /* UIMySwitch.m in Sources */,
+				041B190E17250EF100A5F63E /* TableRelayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,20 +345,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		047407881720E34000DD0408 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				047407891720E34000DD0408 /* en */,
-			);
-			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
 		0474079D1720E34100DD0408 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0474079E1720E34100DD0408 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		04FB86241721490800734F41 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04FB86251721490800734F41 /* en */,
+			);
+			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -455,6 +497,7 @@
 				047407A71720E34100DD0408 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		047407A81720E34100DD0408 /* Build configuration list for PBXNativeTarget "JXZKTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +506,7 @@
 				047407AA1720E34100DD0408 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
