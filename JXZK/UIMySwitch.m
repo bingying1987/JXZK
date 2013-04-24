@@ -15,7 +15,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+        self.onTintColor = [UIColor blackColor];
+        self.tintColor = [UIColor yellowColor];
+        self.thumbTintColor = [UIColor orangeColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.opaque = 0.6;
     }
     return self;
 }
@@ -25,10 +29,6 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    self.onTintColor = [UIColor blackColor];
-    self.tintColor = [UIColor redColor];
-    self.thumbTintColor = [UIColor orangeColor];
-    self.backgroundColor = nil;
 }
 
 

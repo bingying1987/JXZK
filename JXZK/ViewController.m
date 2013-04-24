@@ -38,7 +38,7 @@
 
 - (void)createThumbScrollView
 {
-    [__scrollTabButtonList setClipsToBounds:NO];
+    //[__scrollTabButtonList setClipsToBounds:NO];
     float xPostion = THUMB_H_PADDING;
     int i = 0;
     for (NSDictionary* imageDict in [self imageData]) {
@@ -63,11 +63,150 @@
     [__scrollTabButtonList setContentSize:CGSizeMake(xPostion, scrollViewHeight)];
 }
 
+
+- (void)initMoviePictures
+{
+    picArray = [[NSMutableArray alloc] initWithCapacity:10];
+    picFileNameArray = [[NSMutableArray alloc] initWithCapacity:10];
+    NSString* dirPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSLog(dirPath,nil);
+    
+    
+    //NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDir error:nil];
+    //NSArray *onlyPics = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"]];
+    
+    
+    NSFileManager* fileMgr = [NSFileManager defaultManager];
+    NSArray* tempArray = [fileMgr contentsOfDirectoryAtPath:dirPath error:nil];//得到所有文件
+    NSArray *onlyPics = [tempArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"]];
+    for(NSString* fileName in onlyPics)
+    {
+        BOOL flag = YES;
+        NSString* fullPath = [dirPath stringByAppendingPathComponent:fileName];
+        if ([fileMgr fileExistsAtPath:fullPath isDirectory:&flag]) {
+            if (!flag) {
+                [picArray addObject:fullPath];
+                [picFileNameArray addObject:fileName];
+            }
+        }
+    }
+
+}
+
+#define THUMB_H1_PADDING 20
+#define THUMB_V1_PADDING 20
+#define THUMB_WIDTH 200
+- (void)createMediaPictureScrollView
+{
+    if ([picArray count] <= 0) {
+        return;
+    }
+    int yPostion = THUMB_V1_PADDING;
+    //[__picScrollView setClipsToBounds:NO];
+    for (int j = 0;j < [picArray count];j++) {
+        NSString* imagePath = [picArray objectAtIndex:j];
+        UIImage *thumbImage = [UIImage imageWithContentsOfFile:imagePath];
+        if (thumbImage) {
+            ThumbImageView *thumbView = [[ThumbImageView alloc] initWithImage:thumbImage];
+            thumbView.delegate = self;
+            thumbView.tag = -1;//-1表示 是视频图片滚动视图里的图片
+            thumbView.FileName = [picFileNameArray objectAtIndex:j];
+            [thumbView setExclusiveTouch:YES];
+            [thumbView setUserInteractionEnabled:YES];
+            CGRect frame = [thumbView frame];
+            frame.origin.y = yPostion;
+            frame.origin.x = THUMB_H1_PADDING + 100 * (j % 2) + THUMB_H1_PADDING * (j % 2);
+            [thumbView setFrame:frame];
+            [__picScrollView addSubview:thumbView];
+            if (j % 2 == 1) {
+                yPostion += frame.size.height + THUMB_V1_PADDING;
+            }
+        }
+    }
+    float scrollViewWidth = THUMB_WIDTH + THUMB_H1_PADDING * 3;
+    if ([picArray count] % 2 != 0) {
+        yPostion = yPostion + 100 + THUMB_V1_PADDING;
+    }
+    [__picScrollView setContentSize:CGSizeMake(scrollViewWidth, yPostion)];
+}
+
+
+
+- (void)initPPTPictures
+{
+    pptArray = [[NSMutableArray alloc] initWithCapacity:10];
+    pptFileNameArray = [[NSMutableArray alloc] initWithCapacity:10];
+    NSString* dirPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSLog(dirPath,nil);
+    
+    
+    //NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDir error:nil];
+    //NSArray *onlyPics = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"]];
+    
+    
+    NSFileManager* fileMgr = [NSFileManager defaultManager];
+    NSArray* tempArray = [fileMgr contentsOfDirectoryAtPath:dirPath error:nil];//得到所有文件
+    NSArray *onlyPics = [tempArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.png'"]];
+    for(NSString* fileName in onlyPics)
+    {
+        BOOL flag = YES;
+        NSString* fullPath = [dirPath stringByAppendingPathComponent:fileName];
+        if ([fileMgr fileExistsAtPath:fullPath isDirectory:&flag]) {
+            if (!flag) {
+                [pptArray addObject:fullPath];
+                [pptFileNameArray addObject:fileName];
+            }
+        }
+    }
+    
+}
+
+- (void)createPPTPictureScrollView
+{
+    if ([pptArray count] <= 0) {
+        return;
+    }
+    int yPostion = THUMB_V1_PADDING;
+    //[__picScrollView setClipsToBounds:NO];
+    for (int j = 0;j < [pptArray count];j++) {
+        NSString* imagePath = [pptArray objectAtIndex:j];
+        UIImage *thumbImage = [UIImage imageWithContentsOfFile:imagePath];
+        if (thumbImage) {
+            ThumbImageView *thumbView = [[ThumbImageView alloc] initWithImage:thumbImage];
+            thumbView.delegate = self;
+            thumbView.tag = -2;//-2表示 是PPT图片滚动视图里的图片
+            thumbView.FileName = [pptFileNameArray objectAtIndex:j];
+            [thumbView setExclusiveTouch:YES];
+            [thumbView setUserInteractionEnabled:YES];
+            CGRect frame = [thumbView frame];
+            frame.origin.y = yPostion;
+            frame.origin.x = THUMB_H1_PADDING + 100 * (j % 2) + THUMB_H1_PADDING * (j % 2);
+            [thumbView setFrame:frame];
+            [__pptScrollView addSubview:thumbView];
+            if (j % 2 == 1) {
+                yPostion += frame.size.height + THUMB_V1_PADDING;
+            }
+        }
+    }
+    float scrollViewWidth = THUMB_WIDTH + THUMB_H1_PADDING * 3;
+    if ([pptArray count] % 2 != 0) {
+        yPostion = yPostion + 100 + THUMB_V1_PADDING;
+    }
+    [__pptScrollView setContentSize:CGSizeMake(scrollViewWidth, yPostion)];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _currentIndex = 0;
     [self createThumbScrollView];
+    [self initMoviePictures];
+    [self createMediaPictureScrollView];
+    [self initPPTPictures];
+    [self createPPTPictureScrollView];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -82,11 +221,11 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.5];
     if (bShow) {
-        [__scrollTabButtonList setFrame:CGRectMake(0, 618, 1024, THUMB_HEIGHT)];
+        [__scrollTabButtonList setFrame:CGRectMake(0, 608, 1024, THUMB_HEIGHT + THUMB_V_PADDING)];
     }
     else
     {
-        [__scrollTabButtonList setFrame:CGRectMake(0, 768, 1024, THUMB_HEIGHT)];
+        [__scrollTabButtonList setFrame:CGRectMake(0, 768, 1024, THUMB_HEIGHT + THUMB_V_PADDING)];
     }
     [UIView commitAnimations];
 
@@ -146,6 +285,58 @@
         _currentIndex = iIndex;
     }
 
+}
+
+- (void)thumbMovieImageClicked:(NSString*) PicName;
+{
+    NSString* string1 = @".jpg";
+    NSRange range = [PicName rangeOfString:string1];
+    NSString* string2 = [PicName substringToIndex:range.location];//提取到影片名字
+    range = [PicName rangeOfString:@"3D"];
+    
+    NSString *pstr;
+    if (range.location != NSNotFound) {//是3D影片
+        pstr = @"http://192.168.1.100/HisanVideo/VideoOpenActive?stereo=2&file=D:/Video/";
+    }
+    else
+    {
+        pstr = @"http://192.168.1.100/HisanVideo/VideoOpen?file=D:/Video/";
+    }
+    
+    pstr = [pstr stringByAppendingString:string2];
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+
+}
+
+- (void)thumbPPTImageClicked:(NSString*) pptName;
+{
+    NSString* string1 = @".png";
+    NSRange range = [pptName rangeOfString:string1];
+    NSString* string2 = [pptName substringToIndex:range.location];//提取到ppt名字
+    
+    NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.100/HisanCapture/CaptureOpenPPT?fileName=%@",string2];
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+    
 }
 
 @end

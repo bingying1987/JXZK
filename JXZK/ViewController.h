@@ -11,8 +11,14 @@
 @interface ViewController : UIViewController<ThumbImageViewDelegate>
 {
     NSInteger _currentIndex;
+    NSMutableArray *picArray;
+    NSMutableArray *picFileNameArray;
+    NSMutableArray *pptArray;
+    NSMutableArray *pptFileNameArray;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *_scrollTabButtonList;
+@property (weak, nonatomic) IBOutlet UIScrollView *_picScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *_pptScrollView;
 
 
 @end

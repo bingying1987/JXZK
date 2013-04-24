@@ -8,7 +8,7 @@
 
 #import "TableRelayViewController.h"
 #import "UIMySwitch.h"
-
+#import "MySocket.h"
 @interface TableRelayViewController ()
 
 @end
@@ -86,6 +86,69 @@
     return [tmp count] - 1;
 }
 
+- (void)OpenCloseProjector:(UIMySwitch *)sender
+{
+    int itag = sender.tag;
+    
+    switch (itag) {
+        case 0://投影机1//0xfe,0x08,0x01,0x02,0x00,i,0x00,0x00,0xff,0xff,0xfe
+            {
+                Byte buf[] = {0xfe,0x08,0x01,0x02,0x00,sender.on?0x01:0x02,0x00,0x00,0xff,0xff,0xfe};
+                [[MySocket getInstance] sendto:buf length:sizeof(buf)];
+            }
+            break;
+        case 1://投影机2
+            {
+                Byte buf[] = {0xfe,0x08,0x01,0x02,0x00,sender.on?0x03:0x04,0x00,0x00,0xff,0xff,0xfe};
+                [[MySocket getInstance] sendto:buf length:sizeof(buf)];
+            }
+        default:
+            break;
+    }
+    
+    NSLog(@"Projector");
+}
+
+- (void)OpenCloseLight:(UIMySwitch *)sender
+{
+    int itag = sender.tag;
+    
+    switch (itag) {
+        case 0://灯光回路1
+        {
+            Byte buf[] = {0xfe,0x08,0x01,0x02,0x00,sender.on?0x07:0x08,0x00,0x00,0xff,0xff,0xfe};
+            [[MySocket getInstance] sendto:buf length:sizeof(buf)];
+        }
+            break;
+        case 1://灯光回路2
+        {
+            Byte buf[] = {0xfe,0x08,0x01,0x02,0x00,sender.on?0x09:0x0A,0x00,0x00,0xff,0xff,0xfe};
+            [[MySocket getInstance] sendto:buf length:sizeof(buf)];
+        }
+        default:
+            break;
+    }
+
+    NSLog(@"Light");
+}
+
+- (void)OpenCloseFuseDevice:(UIMySwitch *)sender
+{
+    int itag = sender.tag;
+    
+    switch (itag) {
+        case 0://融合器开关1
+        {
+            Byte buf[] = {0xfe,0x08,0x01,0x02,0x00,0x05,0x00,0x00,0xff,0xff,0xfe};
+            [[MySocket getInstance] sendto:buf length:sizeof(buf)];
+        }
+            break;
+        default:
+            break;
+    }
+    NSLog(@"FuseDevice");
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -106,16 +169,23 @@
     
     UIMySwitch *switchView = [[UIMySwitch alloc] initWithFrame:CGRectZero];
     switchView.tag = [indexPath row];
+
     switch ([indexPath section]) {
         case 0://投影机开关
-            [switchView addTarget:self action:@selector(updateSwitchAtIndexPath:) forControlEvents:UIControlEventValueChanged];
+            [switchView addTarget:self action:@selector(OpenCloseProjector:) forControlEvents:UIControlEventValueChanged];
             break;
-            
+        case 1://灯光回路开关
+            [switchView addTarget:self action:@selector(OpenCloseLight:) forControlEvents:UIControlEventValueChanged];
+            break;
+        case 2://融合器开关
+            [switchView addTarget:self action:@selector(OpenCloseFuseDevice:) forControlEvents:UIControlEventValueChanged];
         default:
             break;
     }
     
+    
     cell.accessoryView = switchView;
+    
     return cell;
 }
 

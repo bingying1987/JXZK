@@ -29,6 +29,7 @@
 		047407AD1720F38300DD0408 /* ThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047407AC1720F38300DD0408 /* ThumbImageView.m */; };
 		04A310931721291600462C1D /* tmp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04A310921721291600462C1D /* tmp.jpg */; };
 		04A3109517212DE500462C1D /* ImageData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A3109417212DE500462C1D /* ImageData.plist */; };
+		04C134A6172538D200F7DCBF /* MySocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C134A5172538D200F7DCBF /* MySocket.m */; };
 		04FB86261721490800734F41 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FB86241721490800734F41 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		047407AC1720F38300DD0408 /* ThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbImageView.m; sourceTree = "<group>"; };
 		04A310921721291600462C1D /* tmp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tmp.jpg; sourceTree = "<group>"; };
 		04A3109417212DE500462C1D /* ImageData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ImageData.plist; sourceTree = "<group>"; };
+		04C134A4172538D200F7DCBF /* MySocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySocket.h; sourceTree = "<group>"; };
+		04C134A5172538D200F7DCBF /* MySocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySocket.m; sourceTree = "<group>"; };
 		04FB86251721490800734F41 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,8 @@
 				041B19081724EF3200A5F63E /* UIMySwitch.m */,
 				041B190C17250EF100A5F63E /* TableRelayViewController.h */,
 				041B190D17250EF100A5F63E /* TableRelayViewController.m */,
+				04C134A4172538D200F7DCBF /* MySocket.h */,
+				04C134A5172538D200F7DCBF /* MySocket.m */,
 				047407771720E34000DD0408 /* Supporting Files */,
 			);
 			path = JXZK;
@@ -315,6 +320,7 @@
 				047407AD1720F38300DD0408 /* ThumbImageView.m in Sources */,
 				041B19091724EF3200A5F63E /* UIMySwitch.m in Sources */,
 				041B190E17250EF100A5F63E /* TableRelayViewController.m in Sources */,
+				04C134A6172538D200F7DCBF /* MySocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +434,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JXZK/JXZK-Prefix.pch";
 				INFOPLIST_FILE = "JXZK/JXZK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -439,6 +446,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JXZK/JXZK-Prefix.pch";
 				INFOPLIST_FILE = "JXZK/JXZK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

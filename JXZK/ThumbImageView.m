@@ -10,7 +10,7 @@
 
 @implementation ThumbImageView
 @synthesize delegate;
-
+@synthesize FileName;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -31,7 +31,24 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if ([delegate respondsToSelector:@selector(thumbImageViewStartedTracking:)]) {
+    if (self.tag == 2) {
+        return;
+    }
+    
+    
+    if (self.tag == -2) {
+        if ([delegate respondsToSelector:@selector(thumbPPTImageClicked:)])
+        {
+            [delegate thumbPPTImageClicked:self.FileName];
+        }
+    }
+    else if (self.tag == -1) {//点击的是视频图片
+        if ([delegate respondsToSelector:@selector(thumbMovieImageClicked:)])
+        {
+            [delegate thumbMovieImageClicked:self.FileName];
+        }
+    }
+    else if ([delegate respondsToSelector:@selector(thumbImageViewStartedTracking:)]) {
         [delegate thumbImageViewStartedTracking:self.tag];
     }
 }

@@ -14,12 +14,13 @@
 }
 
 @property (nonatomic,readwrite) id <ThumbImageViewDelegate> delegate;
-
+@property (nonatomic,weak) NSString* FileName;
 @end
 
 @protocol ThumbImageViewDelegate <NSObject>
 
 @optional
 - (void)thumbImageViewStartedTracking:(NSInteger) iIndex;
-
+- (void)thumbMovieImageClicked:(NSString*) PicName;
+- (void)thumbPPTImageClicked:(NSString*) pptName;
 @end
