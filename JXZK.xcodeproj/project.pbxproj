@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0403880117291BA3008D005D /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403880017291BA3008D005D /* iCarousel.m */; };
+		0403880417291BED008D005D /* iCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403880317291BED008D005D /* iCarouselViewController.m */; };
+		0403880617291CD5008D005D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0403880517291CD5008D005D /* QuartzCore.framework */; };
+		0403880917291E3F008D005D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0403880817291E3F008D005D /* background.png */; };
 		041B19091724EF3200A5F63E /* UIMySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 041B19081724EF3200A5F63E /* UIMySwitch.m */; };
 		041B190B172509ED00A5F63E /* StringTableView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041B190A172509ED00A5F63E /* StringTableView.plist */; };
 		041B190E17250EF100A5F63E /* TableRelayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041B190D17250EF100A5F63E /* TableRelayViewController.m */; };
@@ -44,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040387FF17291BA3008D005D /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		0403880017291BA3008D005D /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		0403880217291BED008D005D /* iCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarouselViewController.h; sourceTree = "<group>"; };
+		0403880317291BED008D005D /* iCarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarouselViewController.m; sourceTree = "<group>"; };
+		0403880517291CD5008D005D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0403880817291E3F008D005D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../../../Downloads/iCarousel/Examples/Resources/background.png; sourceTree = "<group>"; };
 		041B19071724EF3200A5F63E /* UIMySwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMySwitch.h; sourceTree = "<group>"; };
 		041B19081724EF3200A5F63E /* UIMySwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMySwitch.m; sourceTree = "<group>"; };
 		041B190A172509ED00A5F63E /* StringTableView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StringTableView.plist; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0403880617291CD5008D005D /* QuartzCore.framework in Frameworks */,
 				047407711720E34000DD0408 /* UIKit.framework in Frameworks */,
 				047407731720E34000DD0408 /* Foundation.framework in Frameworks */,
 				047407751720E34000DD0408 /* CoreGraphics.framework in Frameworks */,
@@ -104,6 +115,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040387FE17291BA3008D005D /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				040387FF17291BA3008D005D /* iCarousel.h */,
+				0403880017291BA3008D005D /* iCarousel.m */,
+				0403880717291E1F008D005D /* Resource */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
+		0403880717291E1F008D005D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0403880817291E3F008D005D /* background.png */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		047407641720E34000DD0408 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +156,7 @@
 		0474076F1720E34000DD0408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0403880517291CD5008D005D /* QuartzCore.framework */,
 				047407701720E34000DD0408 /* UIKit.framework */,
 				047407721720E34000DD0408 /* Foundation.framework */,
 				047407741720E34000DD0408 /* CoreGraphics.framework */,
@@ -151,6 +181,9 @@
 				041B190D17250EF100A5F63E /* TableRelayViewController.m */,
 				04C134A4172538D200F7DCBF /* MySocket.h */,
 				04C134A5172538D200F7DCBF /* MySocket.m */,
+				0403880217291BED008D005D /* iCarouselViewController.h */,
+				0403880317291BED008D005D /* iCarouselViewController.m */,
+				040387FE17291BA3008D005D /* iCarousel */,
 				047407771720E34000DD0408 /* Supporting Files */,
 			);
 			path = JXZK;
@@ -280,6 +313,7 @@
 				04FB86261721490800734F41 /* MainStoryboard.storyboard in Resources */,
 				041B190B172509ED00A5F63E /* StringTableView.plist in Resources */,
 				041B19101725207600A5F63E /* online.png in Resources */,
+				0403880917291E3F008D005D /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +355,8 @@
 				041B19091724EF3200A5F63E /* UIMySwitch.m in Sources */,
 				041B190E17250EF100A5F63E /* TableRelayViewController.m in Sources */,
 				04C134A6172538D200F7DCBF /* MySocket.m in Sources */,
+				0403880117291BA3008D005D /* iCarousel.m in Sources */,
+				0403880417291BED008D005D /* iCarouselViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
