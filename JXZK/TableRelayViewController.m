@@ -44,6 +44,7 @@
     _relayList = [self RelayData];
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bk.png"]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -164,7 +165,6 @@
     NSString *cellName = [tmp objectAtIndex:row + 1];
     cell.textLabel.text = cellName;
     //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.imageView.image = [UIImage imageNamed:@"online.png"];
     
     
     UIMySwitch *switchView = [[UIMySwitch alloc] initWithFrame:CGRectZero];
@@ -173,12 +173,15 @@
     switch ([indexPath section]) {
         case 0://投影机开关
             [switchView addTarget:self action:@selector(OpenCloseProjector:) forControlEvents:UIControlEventValueChanged];
+            cell.imageView.image = [UIImage imageNamed:@"projector.png"];
             break;
         case 1://灯光回路开关
             [switchView addTarget:self action:@selector(OpenCloseLight:) forControlEvents:UIControlEventValueChanged];
+            cell.imageView.image = [UIImage imageNamed:@"light.png"];
             break;
         case 2://融合器开关
             [switchView addTarget:self action:@selector(OpenCloseFuseDevice:) forControlEvents:UIControlEventValueChanged];
+            cell.imageView.image = [UIImage imageNamed:@"rhq.png"];
         default:
             break;
     }

@@ -6,7 +6,7 @@
 		<key>height</key>
 		<integer>60</integer>
 		<key>name</key>
-		<string>tmp.jpg</string>
+		<string>OpenClose.png</string>
 		<key>width</key>
 		<integer>60</integer>
 	</dict>
@@ -14,17 +14,9 @@
 		<key>height</key>
 		<integer>60</integer>
 		<key>name</key>
-		<string>tmp.jpg</string>
+		<string>Media.png</string>
 		<key>width</key>
 		<string>60</string>
-	</dict>
-	<dict>
-		<key>height</key>
-		<integer>60</integer>
-		<key>name</key>
-		<string>tmp.jpg</string>
-		<key>width</key>
-		<integer>60</integer>
 	</dict>
 </array>
 </plist>

@@ -8,13 +8,17 @@
 
 #import "ViewController.h"
 
-#define THUMB_HEIGHT 150
-#define THUMB_V_PADDING 10
-#define THUMB_H_PADDING 10
+#define THUMB_HEIGHT 110
+#define THUMB_V_PADDING 30
+#define THUMB_H_PADDING 30
 #define CREDIT_LABEL_HEIGHT 20
 #define AUTOSCROLL_THRESHOLD 30
 
 @interface ViewController ()
+{
+    NSString* _currentMediaName;
+    NSString* _currentPPT;
+}
 - (NSArray*)imageData;
 - (void)createThumbScrollView;
 @end
@@ -221,11 +225,11 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.5];
     if (bShow) {
-        [__scrollTabButtonList setFrame:CGRectMake(0, 608, 1024, THUMB_HEIGHT + THUMB_V_PADDING)];
+        [__scrollTabButtonList setFrame:CGRectMake(0, 648, 1024, 120)];
     }
     else
     {
-        [__scrollTabButtonList setFrame:CGRectMake(0, 768, 1024, THUMB_HEIGHT + THUMB_V_PADDING)];
+        [__scrollTabButtonList setFrame:CGRectMake(0, 768, 1024, 120)];
     }
     [UIView commitAnimations];
 
@@ -292,6 +296,10 @@
     NSString* string1 = @".jpg";
     NSRange range = [PicName rangeOfString:string1];
     NSString* string2 = [PicName substringToIndex:range.location];//提取到影片名字
+    _currentMediaName = string2;
+    __label.text = [NSString stringWithFormat:@"当前选中:  %@",string2];
+    return;
+    /*
     range = [PicName rangeOfString:@"3D"];
     
     NSString *pstr;
@@ -315,7 +323,7 @@
     NSError* error;
     NSURLResponse* response;
     urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-
+    */
 }
 
 - (void)thumbPPTImageClicked:(NSString*) pptName;
@@ -323,7 +331,13 @@
     NSString* string1 = @".png";
     NSRange range = [pptName rangeOfString:string1];
     NSString* string2 = [pptName substringToIndex:range.location];//提取到ppt名字
+    _currentPPT = string2;
+    __label.text = [NSString stringWithFormat:@"当前选中:  %@",string2];
+    return;
+
     
+    
+    /*
     NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.100/HisanCapture/CaptureOpenPPT?fileName=%@",string2];
     const char *str3 = pstr.UTF8String;
     NSString *str2 = [NSString stringWithUTF8String:str3];
@@ -336,7 +350,120 @@
     NSError* error;
     NSURLResponse* response;
     urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-    
+    */
 }
 
+- (IBAction)PlayMedia:(id)sender {
+    if (_currentMediaName == nil) {
+        return;
+    }
+    
+    NSRange range = [_currentMediaName rangeOfString:@"3D"];
+    
+    NSString *pstr;
+    if (range.location != NSNotFound) {//是3D影片
+        pstr = @"http://192.168.1.100/HisanVideo/VideoOpenActive?stereo=2&file=D:/Video/";
+    }
+    else
+    {
+        pstr = @"http://192.168.1.100/HisanVideo/VideoOpen?file=D:/Video/";
+    }
+    
+    pstr = [pstr stringByAppendingString:_currentMediaName];
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+
+}
+
+- (IBAction)PauseMedia:(id)sender {
+    NSString* str = @"http://192.168.1.100/HisanVideo/VideoPlayOrPause";
+    NSLog(str,nil);
+    NSURL* url = [NSURL URLWithString:str];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+}
+
+- (IBAction)StopMedia:(id)sender {
+    NSString* str = @"http://192.168.1.100/HisanVideo/VideoClose";
+    NSLog(str,nil);
+    NSURL* url = [NSURL URLWithString:str];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+}
+
+- (IBAction)OpenPPT:(id)sender {
+    if (_currentPPT == nil) {
+        return;
+    }
+    
+    NSString *pstr = [NSString stringWithFormat:@"http://192.168.1.100/HisanCapture/CaptureOpenPPT?fileName=%@",_currentPPT];
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+}
+
+- (IBAction)pptUp:(id)sender {
+    if (_currentPPT == nil) {
+        return;
+    }
+    
+    NSString *pstr = @"http://融合器IP/HisanCapture/ CaptureOperate?op=101";
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+}
+
+- (IBAction)pptDown:(id)sender {
+    if (_currentPPT == nil) {
+        return;
+    }
+    
+    NSString *pstr = @"http://融合器IP/HisanCapture/ CaptureOperate?op=102";
+    const char *str3 = pstr.UTF8String;
+    NSString *str2 = [NSString stringWithUTF8String:str3];
+    NSLog(str2,0);
+    str2 = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];//这一步完成转码
+    NSURL* url = [NSURL URLWithString:str2];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+}
 @end

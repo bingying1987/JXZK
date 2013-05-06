@@ -9,10 +9,11 @@
             <objects>
                 <tableViewController title="开关控制" id="zW1-aB-jYc" customClass="TableRelayViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iln-CQ-Dgu">
-                        <rect key="frame" x="0.0" y="0.0" width="244" height="394"/>
+                        <rect key="frame" x="0.0" y="0.0" width="244" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <color key="separatorColor" red="0.0" green="1" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="AQZ-Wl-WGG">
                                 <rect key="frame" x="0.0" y="22" width="244" height="44"/>
@@ -45,27 +46,159 @@
                         <subviews>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHD-Qg-jkg" userLabel="MediaPPT">
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-un-khn"/>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgO-a0-y5J">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXk-Jm-acg">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </scrollView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsD-TK-0Kr">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="504" id="hkB-lV-RNB"/>
+                                            <constraint firstAttribute="height" constant="400" id="ll7-2Y-Tba"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="当前选中:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WC7-lS-86l">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="dFT-Dx-j8y"/>
+                                            <constraint firstAttribute="width" constant="300" id="hC1-S4-Ake"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMw-WT-azK">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="5kN-tB-glo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="播放">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="PlayMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="puw-g6-SbT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-ZE-hQX">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="jAJ-q1-Wf1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="恢复/暂停">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="PauseMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="avi-Ss-99u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiF-mF-Mzi">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="jcB-Bx-mrS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="停止">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="StopMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="YoV-mh-yP5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wp0-Nt-58T">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="tPL-MY-Eea"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="打开PPT">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OpenPPT:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="S2K-dw-g4F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2R-AW-Lqg">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="Jl5-kQ-jzv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="上一页">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pptUp:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="caF-jJ-7vA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-hB-bPT">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="iff-Sz-6qU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="下一页">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pptDown:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="6qp-qb-ZUq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="cgO-a0-y5J" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="764" id="4R5-tr-qLy"/>
-                                    <constraint firstItem="qXk-Jm-acg" firstAttribute="bottom" secondItem="cgO-a0-y5J" secondAttribute="bottom" type="default" id="4RT-qL-x8E"/>
                                     <constraint firstAttribute="trailing" secondItem="qXk-Jm-acg" secondAttribute="trailing" constant="764" id="4ve-2e-wHH"/>
+                                    <constraint firstAttribute="bottom" secondItem="u8V-hB-bPT" secondAttribute="bottom" constant="90" id="4x7-G8-nBW"/>
+                                    <constraint firstAttribute="trailing" secondItem="v2R-AW-Lqg" secondAttribute="trailing" constant="339" id="9bd-Jx-I0j"/>
+                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="430" id="BUi-Dc-m8q"/>
+                                    <constraint firstItem="u8V-hB-bPT" firstAttribute="baseline" secondItem="v2R-AW-Lqg" secondAttribute="baseline" type="default" id="JPt-pI-Qez"/>
+                                    <constraint firstItem="wUm-un-khn" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" type="default" id="Jla-bm-tgA"/>
+                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="baseline" secondItem="Jm8-ZE-hQX" secondAttribute="baseline" type="default" id="Qqe-nS-G3l"/>
                                     <constraint firstItem="qXk-Jm-acg" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" type="default" id="SFr-n8-2sW"/>
-                                    <constraint firstItem="qXk-Jm-acg" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" constant="184" id="bph-df-tQz"/>
-                                    <constraint firstItem="cgO-a0-y5J" firstAttribute="top" secondItem="qXk-Jm-acg" secondAttribute="top" type="default" id="dGS-d2-AI2"/>
-                                    <constraint firstItem="cgO-a0-y5J" firstAttribute="centerY" secondItem="JHD-Qg-jkg" secondAttribute="centerY" type="default" id="fA8-p8-GCA"/>
+                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="baseline" secondItem="lMw-WT-azK" secondAttribute="baseline" type="default" id="Vrw-08-hKU"/>
+                                    <constraint firstItem="WC7-lS-86l" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="350" id="WGP-Bc-0Zt"/>
+                                    <constraint firstItem="Wp0-Nt-58T" firstAttribute="baseline" secondItem="wiF-mF-Mzi" secondAttribute="baseline" type="default" id="WVz-he-d1l"/>
+                                    <constraint firstItem="SsD-TK-0Kr" firstAttribute="bottom" secondItem="qXk-Jm-acg" secondAttribute="bottom" type="default" id="Wd8-Vy-lnv"/>
+                                    <constraint firstItem="lMw-WT-azK" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="250" id="Ywo-NH-CJq"/>
+                                    <constraint firstAttribute="trailing" secondItem="u8V-hB-bPT" secondAttribute="trailing" constant="249" id="a5g-4S-u8Z"/>
+                                    <constraint firstItem="SsD-TK-0Kr" firstAttribute="bottom" secondItem="cgO-a0-y5J" secondAttribute="bottom" type="default" id="c8v-qp-JTT"/>
+                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="340" id="gOh-Mi-9si"/>
+                                    <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="cgO-a0-y5J" secondAttribute="top" type="default" id="ls8-Vs-Qzv"/>
+                                    <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="qXk-Jm-acg" secondAttribute="top" type="default" id="mM1-fT-ozI"/>
                                     <constraint firstItem="cgO-a0-y5J" firstAttribute="trailing" secondItem="JHD-Qg-jkg" secondAttribute="trailing" type="default" id="mWg-Kl-CeX"/>
+                                    <constraint firstItem="wUm-un-khn" firstAttribute="centerX" secondItem="SsD-TK-0Kr" secondAttribute="centerX" type="default" id="mic-R4-QRB"/>
+                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="baseline" secondItem="Wp0-Nt-58T" secondAttribute="baseline" type="default" id="qMf-rw-5Sf"/>
+                                    <constraint firstAttribute="bottom" secondItem="WC7-lS-86l" secondAttribute="bottom" constant="148" id="ugY-KB-UeK"/>
+                                    <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" constant="147" id="wAV-wC-aLh"/>
+                                    <constraint firstItem="wUm-un-khn" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" type="default" id="xcc-Hd-xbf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wp0-Nt-58T" secondAttribute="trailing" constant="429" id="zQl-n5-4ee"/>
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pz3-ma-di5">
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vry-8O-aNa"/>
                                     <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tp-8L-pUK">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <connections>
@@ -81,17 +214,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="jWl-QM-64I" firstAttribute="bottom" secondItem="Pz3-ma-di5" secondAttribute="bottom" type="default" id="3Mt-X5-AwQ"/>
+                                    <constraint firstItem="1tp-8L-pUK" firstAttribute="bottom" secondItem="Pz3-ma-di5" secondAttribute="bottom" type="default" id="6mz-sI-A0J"/>
                                     <constraint firstItem="jWl-QM-64I" firstAttribute="trailing" secondItem="Pz3-ma-di5" secondAttribute="trailing" type="default" id="JVZ-nl-kMa"/>
                                     <constraint firstItem="1tp-8L-pUK" firstAttribute="top" secondItem="Pz3-ma-di5" secondAttribute="top" constant="147" id="OOc-qj-q9W"/>
-                                    <constraint firstAttribute="bottom" secondItem="1tp-8L-pUK" secondAttribute="bottom" constant="227" id="T27-1P-qTE"/>
+                                    <constraint firstItem="vry-8O-aNa" firstAttribute="top" secondItem="Pz3-ma-di5" secondAttribute="top" type="default" id="aEa-Hc-DwK"/>
                                     <constraint firstItem="jWl-QM-64I" firstAttribute="top" secondItem="1tp-8L-pUK" secondAttribute="top" type="default" id="cL1-0X-qlF"/>
                                     <constraint firstItem="1tp-8L-pUK" firstAttribute="leading" secondItem="Pz3-ma-di5" secondAttribute="leading" type="default" id="dDJ-Pr-QZT"/>
                                     <constraint firstAttribute="trailing" secondItem="1tp-8L-pUK" secondAttribute="trailing" constant="780" id="eYs-mo-c94"/>
                                     <constraint firstItem="jWl-QM-64I" firstAttribute="leading" secondItem="Pz3-ma-di5" secondAttribute="leading" constant="244" id="ggS-ET-hAg"/>
-                                    <constraint firstItem="jWl-QM-64I" firstAttribute="bottom" secondItem="1tp-8L-pUK" secondAttribute="bottom" type="default" id="z8X-CL-QaP"/>
+                                    <constraint firstItem="vry-8O-aNa" firstAttribute="leading" secondItem="Pz3-ma-di5" secondAttribute="leading" type="default" id="xyq-Fa-1hE"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-JS-7TK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-JS-7TK">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
@@ -103,11 +238,11 @@
                             <constraint firstItem="JHD-Qg-jkg" firstAttribute="bottom" secondItem="1nM-wh-Y5b" secondAttribute="bottom" type="default" id="LAU-2z-AaT"/>
                             <constraint firstItem="ifi-JS-7TK" firstAttribute="trailing" secondItem="1nM-wh-Y5b" secondAttribute="trailing" type="default" id="Lzf-O8-fth"/>
                             <constraint firstItem="JHD-Qg-jkg" firstAttribute="leading" secondItem="1nM-wh-Y5b" secondAttribute="leading" type="default" id="Yer-mG-31u"/>
-                            <constraint firstAttribute="bottom" secondItem="ifi-JS-7TK" secondAttribute="bottom" constant="-160" id="cAQ-eb-clQ"/>
                             <constraint firstItem="Pz3-ma-di5" firstAttribute="leading" secondItem="1nM-wh-Y5b" secondAttribute="leading" type="default" id="i2O-nR-Lhu"/>
                             <constraint firstItem="Pz3-ma-di5" firstAttribute="top" secondItem="1nM-wh-Y5b" secondAttribute="top" type="default" id="mbi-S7-IsA"/>
                             <constraint firstItem="JHD-Qg-jkg" firstAttribute="top" secondItem="1nM-wh-Y5b" secondAttribute="top" type="default" id="nOP-cI-gHa"/>
                             <constraint firstItem="JHD-Qg-jkg" firstAttribute="trailing" secondItem="1nM-wh-Y5b" secondAttribute="trailing" type="default" id="p70-aJ-TOD"/>
+                            <constraint firstAttribute="bottom" secondItem="ifi-JS-7TK" secondAttribute="bottom" constant="-120" id="pvC-6h-p5t"/>
                             <constraint firstItem="ifi-JS-7TK" firstAttribute="top" secondItem="1nM-wh-Y5b" secondAttribute="top" constant="768" id="tU3-NL-Rzm"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -115,6 +250,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="_label" destination="WC7-lS-86l" id="kbn-gM-dgU"/>
                         <outlet property="_picScrollView" destination="cgO-a0-y5J" id="lRZ-7K-xL3"/>
                         <outlet property="_pptScrollView" destination="qXk-Jm-acg" id="Cum-jR-hwJ"/>
                         <outlet property="_scrollTabButtonList" destination="ifi-JS-7TK" id="xNq-PL-IdY"/>
@@ -129,14 +265,10 @@
             <objects>
                 <viewController id="GDL-hW-l0w" customClass="iCarouselViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" contentMode="center" id="lhC-DZ-cKL">
-                        <rect key="frame" x="0.0" y="0.0" width="780" height="394"/>
+                        <rect key="frame" x="0.0" y="0.0" width="780" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="aBV-N7-OMd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="384" id="7vr-7o-TVj"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="aBV-N7-OMd"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WU3-x7-7DG" customClass="iCarousel">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -144,7 +276,24 @@
                                     <outlet property="delegate" destination="GDL-hW-l0w" id="63D-Na-5wy"/>
                                 </connections>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="0KW-k7-zBB">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHy-nO-kkl">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Zag-kJ-kpb"/>
+                                    <constraint firstAttribute="width" constant="73" id="otQ-VI-9cG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="风格">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StyleChange:" destination="GDL-hW-l0w" eventType="touchUpInside" id="K6F-Tw-KQy"/>
+                                </connections>
+                            </button>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="0KW-k7-zBB">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="FZ1-x4-GCk"/>
                                 </constraints>
@@ -152,7 +301,7 @@
                                     <action selector="reloadCarousel" destination="GDL-hW-l0w" eventType="valueChanged" id="IAR-Gl-MYY"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ARC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8X-fe-y1K">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ARC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8X-fe-y1K">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="681-4N-ouJ"/>
                                 </constraints>
@@ -160,7 +309,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lzO-pi-n4m">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lzO-pi-n4m">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="83H-8U-Lvs"/>
                                 </constraints>
@@ -168,7 +317,7 @@
                                     <action selector="reloadCarousel" destination="GDL-hW-l0w" eventType="valueChanged" id="G9U-t6-Zok"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-g8-i3h">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-g8-i3h">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="g6u-oY-O4i"/>
                                 </constraints>
@@ -176,7 +325,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tilt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIk-YX-uPP">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tilt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIk-YX-uPP">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="UXY-g5-kgD"/>
                                 </constraints>
@@ -184,7 +333,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.89999997615814198" minValue="0.00100000004749745" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a0a-ga-L7B">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.89999997615814198" minValue="0.00100000004749745" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a0a-ga-L7B">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="dkh-pz-tDO"/>
                                 </constraints>
@@ -192,7 +341,7 @@
                                     <action selector="reloadCarousel" destination="GDL-hW-l0w" eventType="valueChanged" id="rr8-nw-zVS"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spacing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-go-exP">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spacing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-go-exP">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="juk-4W-yZu"/>
                                 </constraints>
@@ -200,7 +349,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="ItX-gh-9tO">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.00100000004749745" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="ItX-gh-9tO">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="Ton-rV-Z0T"/>
                                 </constraints>
@@ -229,10 +378,13 @@
                             <constraint firstItem="aBV-N7-OMd" firstAttribute="leading" secondItem="lhC-DZ-cKL" secondAttribute="leading" type="default" id="TVW-M0-jbl"/>
                             <constraint firstItem="aBV-N7-OMd" firstAttribute="trailing" secondItem="lhC-DZ-cKL" secondAttribute="trailing" type="default" id="Trd-T2-cEV"/>
                             <constraint firstItem="E8X-fe-y1K" firstAttribute="leading" secondItem="lhC-DZ-cKL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Vuc-Rv-9nv"/>
+                            <constraint firstItem="KHy-nO-kkl" firstAttribute="top" secondItem="lhC-DZ-cKL" secondAttribute="top" constant="6" id="aen-Uo-TRm"/>
                             <constraint firstItem="ItX-gh-9tO" firstAttribute="leading" secondItem="kdq-go-exP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="bEa-qd-DBw"/>
                             <constraint firstAttribute="trailing" secondItem="VIk-YX-uPP" secondAttribute="trailing" constant="317" id="iPb-U4-xg5"/>
+                            <constraint firstItem="aBV-N7-OMd" firstAttribute="bottom" secondItem="lhC-DZ-cKL" secondAttribute="bottom" type="default" id="llk-SY-glQ"/>
                             <constraint firstItem="VIk-YX-uPP" firstAttribute="baseline" secondItem="D3N-g8-i3h" secondAttribute="baseline" type="default" id="mep-RV-M7Y"/>
                             <constraint firstItem="kdq-go-exP" firstAttribute="baseline" secondItem="VIk-YX-uPP" secondAttribute="baseline" type="default" id="swU-mE-mYO"/>
+                            <constraint firstItem="KHy-nO-kkl" firstAttribute="leading" secondItem="lhC-DZ-cKL" secondAttribute="leading" constant="348" id="t9g-cS-5eS"/>
                             <constraint firstAttribute="bottom" secondItem="E8X-fe-y1K" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="zkp-bC-aBw"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -252,6 +404,7 @@
     </scenes>
     <resources>
         <image name="background.png" width="50" height="468"/>
+        <image name="top.jpg" width="1024" height="147"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>

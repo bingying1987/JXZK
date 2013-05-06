@@ -19,6 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *_scrollTabButtonList;
 @property (weak, nonatomic) IBOutlet UIScrollView *_picScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *_pptScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *_label;
+- (IBAction)PlayMedia:(id)sender;
+- (IBAction)PauseMedia:(id)sender;
+- (IBAction)StopMedia:(id)sender;
+- (IBAction)OpenPPT:(id)sender;
+- (IBAction)pptUp:(id)sender;
+- (IBAction)pptDown:(id)sender;
 
 
 @end

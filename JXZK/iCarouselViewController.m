@@ -8,7 +8,7 @@
 
 #import "iCarouselViewController.h"
 
-@interface iCarouselViewController ()
+@interface iCarouselViewController ()<UIActionSheetDelegate>
 
 @end
 
@@ -89,8 +89,8 @@
 {
     if (view == nil)
     {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 400.0f, 300.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"online.png"];
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,550.0f, 550.0f)];
+        ((UIImageView *)view).image = [UIImage imageNamed:@"pic.jpg"];
         view.contentMode = UIViewContentModeScaleToFill;
     }
     return view;
@@ -114,13 +114,40 @@
     }
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex	>= 0)
+    {
+        //map button index to carousel type
+        iCarouselType type = buttonIndex;
+        
+        //carousel can smoothly animate between types
+        [UIView beginAnimations:nil context:nil];
+        carousel.type = type;
+        [self updateSliders];
+        [UIView commitAnimations];
+        
+    }
+}
+
+
+- (IBAction)StyleChange:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"选择风格"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"流线型", @"旋转型", @"逆旋转", @"园柱体", @"逆圆柱体", @"轮盘", @"逆轮盘", @"CoverFlow", @"CoverFlow2", @"时间机器", @"逆时间机器", nil];
+    [sheet showInView:self.view];
+
+}
+
 - (IBAction)reloadCarousel
 {
     [carousel reloadData];
 }
-
+/*
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-}
+
+}*/
 @end

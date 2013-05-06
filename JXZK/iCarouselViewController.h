@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *radiusSlider;
 @property (weak, nonatomic) IBOutlet UISlider *titltSlider;
 @property (weak, nonatomic) IBOutlet UISlider *spaceingSlider;
+- (IBAction)StyleChange:(id)sender;
 
 - (IBAction)reloadCarousel;
 @end

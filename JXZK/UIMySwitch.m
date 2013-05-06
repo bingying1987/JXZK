@@ -15,9 +15,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
         self.onTintColor = [UIColor blackColor];
-        self.tintColor = [UIColor yellowColor];
-        self.thumbTintColor = [UIColor orangeColor];
+        
+       // self.tintColor = [UIColor blueColor];
+       // self.thumbTintColor = [UIColor cyanColor];
         self.backgroundColor = [UIColor clearColor];
         self.opaque = 0.6;
     }
