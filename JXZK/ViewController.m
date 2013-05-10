@@ -19,6 +19,7 @@
     NSString* _currentMediaName;
     NSString* _currentPPT;
 }
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 - (NSArray*)imageData;
 - (void)createThumbScrollView;
 @end
@@ -207,11 +208,21 @@
     [super viewDidLoad];
     _currentIndex = 0;
     [self createThumbScrollView];
+    __picScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scbk1.jpg"]];
     [self initMoviePictures];
     [self createMediaPictureScrollView];
+    __pptScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scbk2.jpg"]];
     [self initPPTPictures];
     [self createPPTPictureScrollView];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    UIImage *stetchLeftTrack= [[UIImage imageNamed:@"valuenull.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,10,0,10)];
+    UIImage *stetchRightTrack = [[UIImage imageNamed:@"valuefull.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,10,0,10)];
+    
+    [_slider setMinimumTrackImage:stetchRightTrack forState:UIControlStateNormal];
+    [_slider setMaximumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
+    [_slider setThumbImage:nil forState:UIControlStateNormal];
+    [_slider setThumbImage:nil forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -434,7 +445,7 @@
         return;
     }
     
-    NSString *pstr = @"http://融合器IP/HisanCapture/ CaptureOperate?op=101";
+    NSString *pstr = @"http://192.168.1.100/HisanCapture/CaptureOperate?op=101";
     const char *str3 = pstr.UTF8String;
     NSString *str2 = [NSString stringWithUTF8String:str3];
     NSLog(str2,0);
@@ -453,7 +464,7 @@
         return;
     }
     
-    NSString *pstr = @"http://融合器IP/HisanCapture/ CaptureOperate?op=102";
+    NSString *pstr = @"http://192.168.1.100/HisanCapture/CaptureOperate?op=102";
     const char *str3 = pstr.UTF8String;
     NSString *str2 = [NSString stringWithUTF8String:str3];
     NSLog(str2,0);
@@ -461,9 +472,31 @@
     NSURL* url = [NSURL URLWithString:str2];
     
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:nil];
+    /*
+    NSData* urlData;
+    NSError* error;
+    NSURLResponse* response;
+
+    
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+     */
+}
+
+- (IBAction)SoundValueChange:(UISlider *)sender {
+    NSString *str = [NSString stringWithFormat:@"http://192.168.1.100/HisanVideo/VideoSetVolume?volume=%d",(int)sender.value];
+
+    NSLog(str,nil);
+    NSURL* url = [NSURL URLWithString:str];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+    
     NSData* urlData;
     NSError* error;
     NSURLResponse* response;
     urlData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
 }
+
 @end

@@ -8,7 +8,7 @@
         <scene sceneID="IMt-F5-RLH">
             <objects>
                 <tableViewController title="开关控制" id="zW1-aB-jYc" customClass="TableRelayViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iln-CQ-Dgu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iln-CQ-Dgu">
                         <rect key="frame" x="0.0" y="0.0" width="244" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,16 +48,18 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-un-khn"/>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgO-a0-y5J">
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXk-Jm-acg">
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </scrollView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsD-TK-0Kr">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="center.png" translatesAutoresizingMaskIntoConstraints="NO" id="SsD-TK-0Kr">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MediaPlay.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="1fW-Mk-T6Q">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="504" id="hkB-lV-RNB"/>
-                                            <constraint firstAttribute="height" constant="400" id="ll7-2Y-Tba"/>
+                                            <constraint firstAttribute="height" constant="321" id="fSe-lW-nj0"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="当前选中:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WC7-lS-86l">
@@ -66,15 +68,15 @@
                                             <constraint firstAttribute="width" constant="300" id="hC1-S4-Ake"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMw-WT-azK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMw-WT-azK">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="5kN-tB-glo"/>
+                                            <constraint firstAttribute="height" constant="77" id="WuA-C5-H2J"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="播放">
+                                        <state key="normal" backgroundImage="play.PNG">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -85,12 +87,9 @@
                                             <action selector="PlayMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="puw-g6-SbT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-ZE-hQX">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="jAJ-q1-Wf1"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-ZE-hQX">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="恢复/暂停">
+                                        <state key="normal" backgroundImage="pause.PNG">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -101,12 +100,9 @@
                                             <action selector="PauseMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="avi-Ss-99u"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiF-mF-Mzi">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="jcB-Bx-mrS"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiF-mF-Mzi">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="停止">
+                                        <state key="normal" backgroundImage="stop.PNG">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -117,28 +113,25 @@
                                             <action selector="StopMedia:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="YoV-mh-yP5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wp0-Nt-58T">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wp0-Nt-58T">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="tPL-MY-Eea"/>
+                                            <constraint firstAttribute="width" constant="86" id="qVd-AS-0GK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="打开PPT">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" backgroundImage="pptopen.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="OpenPPT:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="S2K-dw-g4F"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2R-AW-Lqg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2R-AW-Lqg">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="Jl5-kQ-jzv"/>
+                                            <constraint firstAttribute="width" constant="86" id="Twh-BL-OG4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="上一页">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" backgroundImage="pptpre.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -149,12 +142,12 @@
                                             <action selector="pptUp:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="caF-jJ-7vA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-hB-bPT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-hB-bPT">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="iff-Sz-6qU"/>
+                                            <constraint firstAttribute="width" constant="86" id="MmR-k0-zG1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="下一页">
+                                        <state key="normal" backgroundImage="pptnext.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -165,35 +158,57 @@
                                             <action selector="pptDown:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="6qp-qb-ZUq"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-cX-SYK">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="zeM-E2-Dnn"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="SoundValueChange:" destination="K4E-Nm-hZU" eventType="touchUpInside" id="tcG-gT-mhl"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="bottom" secondItem="wiF-mF-Mzi" secondAttribute="bottom" type="default" id="223-yT-I03"/>
+                                    <constraint firstItem="1fW-Mk-T6Q" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" type="default" id="2Xn-jy-1dt"/>
+                                    <constraint firstItem="wUm-un-khn" firstAttribute="centerX" secondItem="SsD-TK-0Kr" secondAttribute="centerX" type="default" id="36Q-fx-3Tz"/>
                                     <constraint firstItem="cgO-a0-y5J" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="764" id="4R5-tr-qLy"/>
                                     <constraint firstAttribute="trailing" secondItem="qXk-Jm-acg" secondAttribute="trailing" constant="764" id="4ve-2e-wHH"/>
-                                    <constraint firstAttribute="bottom" secondItem="u8V-hB-bPT" secondAttribute="bottom" constant="90" id="4x7-G8-nBW"/>
-                                    <constraint firstAttribute="trailing" secondItem="v2R-AW-Lqg" secondAttribute="trailing" constant="339" id="9bd-Jx-I0j"/>
-                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="430" id="BUi-Dc-m8q"/>
-                                    <constraint firstItem="u8V-hB-bPT" firstAttribute="baseline" secondItem="v2R-AW-Lqg" secondAttribute="baseline" type="default" id="JPt-pI-Qez"/>
+                                    <constraint firstItem="1fW-Mk-T6Q" firstAttribute="trailing" secondItem="JHD-Qg-jkg" secondAttribute="trailing" type="default" id="5a0-U0-Nh7"/>
+                                    <constraint firstItem="u8V-hB-bPT" firstAttribute="top" secondItem="v2R-AW-Lqg" secondAttribute="top" type="default" id="6RZ-fs-6ge"/>
+                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="484" id="804-Zq-br8"/>
+                                    <constraint firstAttribute="bottom" secondItem="beR-cX-SYK" secondAttribute="bottom" constant="33" id="8Lg-Ah-PB7"/>
+                                    <constraint firstAttribute="bottom" secondItem="WC7-lS-86l" secondAttribute="bottom" constant="143" id="9Mo-ye-XHE"/>
+                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="top" secondItem="Wp0-Nt-58T" secondAttribute="top" type="default" id="AUn-eq-za2"/>
+                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="bottom" secondItem="Wp0-Nt-58T" secondAttribute="bottom" type="default" id="Ede-mJ-VFn"/>
+                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="bottom" secondItem="Wp0-Nt-58T" secondAttribute="bottom" type="default" id="GeX-U7-UOM"/>
                                     <constraint firstItem="wUm-un-khn" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" type="default" id="Jla-bm-tgA"/>
-                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="baseline" secondItem="Jm8-ZE-hQX" secondAttribute="baseline" type="default" id="Qqe-nS-G3l"/>
+                                    <constraint firstAttribute="trailing" secondItem="beR-cX-SYK" secondAttribute="trailing" constant="73" id="KUy-mh-3ts"/>
                                     <constraint firstItem="qXk-Jm-acg" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" type="default" id="SFr-n8-2sW"/>
-                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="baseline" secondItem="lMw-WT-azK" secondAttribute="baseline" type="default" id="Vrw-08-hKU"/>
                                     <constraint firstItem="WC7-lS-86l" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="350" id="WGP-Bc-0Zt"/>
-                                    <constraint firstItem="Wp0-Nt-58T" firstAttribute="baseline" secondItem="wiF-mF-Mzi" secondAttribute="baseline" type="default" id="WVz-he-d1l"/>
                                     <constraint firstItem="SsD-TK-0Kr" firstAttribute="bottom" secondItem="qXk-Jm-acg" secondAttribute="bottom" type="default" id="Wd8-Vy-lnv"/>
-                                    <constraint firstItem="lMw-WT-azK" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="250" id="Ywo-NH-CJq"/>
-                                    <constraint firstAttribute="trailing" secondItem="u8V-hB-bPT" secondAttribute="trailing" constant="249" id="a5g-4S-u8Z"/>
+                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="top" secondItem="lMw-WT-azK" secondAttribute="top" type="default" id="Xis-E6-Bge"/>
+                                    <constraint firstAttribute="trailing" secondItem="u8V-hB-bPT" secondAttribute="trailing" constant="353" id="ZGf-Qv-deZ"/>
                                     <constraint firstItem="SsD-TK-0Kr" firstAttribute="bottom" secondItem="cgO-a0-y5J" secondAttribute="bottom" type="default" id="c8v-qp-JTT"/>
-                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="340" id="gOh-Mi-9si"/>
+                                    <constraint firstItem="Wp0-Nt-58T" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="383" id="cgl-zv-DGJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="lMw-WT-azK" secondAttribute="bottom" constant="52" id="eRW-eX-ThE"/>
+                                    <constraint firstItem="1fW-Mk-T6Q" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" constant="547" id="fS3-Hb-L2y"/>
+                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="bottom" secondItem="u8V-hB-bPT" secondAttribute="bottom" type="default" id="gVw-Kk-dMd"/>
+                                    <constraint firstItem="lMw-WT-azK" firstAttribute="bottom" secondItem="Jm8-ZE-hQX" secondAttribute="bottom" type="default" id="gYM-CC-DSJ"/>
+                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="282" id="gfl-Yu-r1c"/>
+                                    <constraint firstItem="wiF-mF-Mzi" firstAttribute="top" secondItem="Jm8-ZE-hQX" secondAttribute="top" type="default" id="kkh-lt-WJk"/>
                                     <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="cgO-a0-y5J" secondAttribute="top" type="default" id="ls8-Vs-Qzv"/>
                                     <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="qXk-Jm-acg" secondAttribute="top" type="default" id="mM1-fT-ozI"/>
                                     <constraint firstItem="cgO-a0-y5J" firstAttribute="trailing" secondItem="JHD-Qg-jkg" secondAttribute="trailing" type="default" id="mWg-Kl-CeX"/>
-                                    <constraint firstItem="wUm-un-khn" firstAttribute="centerX" secondItem="SsD-TK-0Kr" secondAttribute="centerX" type="default" id="mic-R4-QRB"/>
-                                    <constraint firstItem="v2R-AW-Lqg" firstAttribute="baseline" secondItem="Wp0-Nt-58T" secondAttribute="baseline" type="default" id="qMf-rw-5Sf"/>
-                                    <constraint firstAttribute="bottom" secondItem="WC7-lS-86l" secondAttribute="bottom" constant="148" id="ugY-KB-UeK"/>
+                                    <constraint firstItem="Wp0-Nt-58T" firstAttribute="top" secondItem="wiF-mF-Mzi" secondAttribute="top" type="default" id="ohP-gQ-V3I"/>
+                                    <constraint firstItem="Jm8-ZE-hQX" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="181" id="rLE-EW-5sP"/>
+                                    <constraint firstItem="lMw-WT-azK" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" constant="80" id="sfs-d7-v4E"/>
                                     <constraint firstItem="SsD-TK-0Kr" firstAttribute="top" secondItem="JHD-Qg-jkg" secondAttribute="top" constant="147" id="wAV-wC-aLh"/>
                                     <constraint firstItem="wUm-un-khn" firstAttribute="leading" secondItem="JHD-Qg-jkg" secondAttribute="leading" type="default" id="xcc-Hd-xbf"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wp0-Nt-58T" secondAttribute="trailing" constant="429" id="zQl-n5-4ee"/>
                                 </constraints>
                             </view>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pz3-ma-di5">
@@ -230,7 +245,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ifi-JS-7TK" firstAttribute="leading" secondItem="1nM-wh-Y5b" secondAttribute="leading" type="default" id="8Qu-Ji-tqL"/>
                             <constraint firstItem="Pz3-ma-di5" firstAttribute="trailing" secondItem="1nM-wh-Y5b" secondAttribute="trailing" type="default" id="AAC-ei-Ygb"/>
@@ -254,6 +269,7 @@
                         <outlet property="_picScrollView" destination="cgO-a0-y5J" id="lRZ-7K-xL3"/>
                         <outlet property="_pptScrollView" destination="qXk-Jm-acg" id="Cum-jR-hwJ"/>
                         <outlet property="_scrollTabButtonList" destination="ifi-JS-7TK" id="xNq-PL-IdY"/>
+                        <outlet property="slider" destination="beR-cX-SYK" id="WHC-qb-txM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUs-Ic-Bd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -403,9 +419,61 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MediaPlay.PNG" width="870" height="512"/>
         <image name="background.png" width="50" height="468"/>
+        <image name="center.png" width="504" height="400"/>
+        <image name="pause.PNG" width="86" height="77"/>
+        <image name="play.PNG" width="86" height="77"/>
+        <image name="pptnext.png" width="128" height="128"/>
+        <image name="pptopen.png" width="128" height="128"/>
+        <image name="pptpre.png" width="128" height="128"/>
+        <image name="stop.PNG" width="86" height="77"/>
         <image name="top.jpg" width="1024" height="147"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TableRelayViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableRelayViewController.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="OpenPPT:"/>
+                <relationship kind="action" name="PauseMedia:"/>
+                <relationship kind="action" name="PlayMedia:"/>
+                <relationship kind="action" name="SoundValueChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="StopMedia:"/>
+                <relationship kind="action" name="pptDown:"/>
+                <relationship kind="action" name="pptUp:"/>
+                <relationship kind="outlet" name="_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_picScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="_pptScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="_scrollTabButtonList" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="iCarouselViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarouselViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="StyleChange:"/>
+                <relationship kind="action" name="reloadCarousel"/>
+                <relationship kind="outlet" name="arcSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="radiusSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="spaceingSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="titltSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

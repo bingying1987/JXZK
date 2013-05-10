@@ -26,6 +26,8 @@
 - (IBAction)OpenPPT:(id)sender;
 - (IBAction)pptUp:(id)sender;
 - (IBAction)pptDown:(id)sender;
+- (IBAction)SoundValueChange:(UISlider *)sender;
+
 
 
 @end
